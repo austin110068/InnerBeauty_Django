@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,12 +29,12 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Stripe
-STRIPE_SECRET_KEY = 'sk_test_51JI6r0KtNOoL9lbbQRAcA51vkGrOHBv9Gjxk1VapGAZIR4WiXjhtwSVjkjj8YN0AyqQvRbvBeTQZcdtQqHPmtwEH008TX414s7';
+STRIPE_SECRET_KEY = os.environ["STRIPE_SECRET_KEY"];
 
 # Twilio
-TWILIO_ACCOUNT_SID = 'ACce398ab6356c535d3b3e3e5160fdd097'
-TWILIO_AUTH_TOKEN= '792f14f9e95c01b4952508cf394a8bfb'
-TWILIO_NUMBER = '+18564324194'
+TWILIO_ACCOUNT_SID = os.environ["TWILIO_ACCOUNT_SID"];
+TWILIO_AUTH_TOKEN = os.environ["TWILIO_AUTH_TOKEN"];
+TWILIO_NUMBER = os.environ["TWILIO_NUMBER"];
 
 # Application definition
 
