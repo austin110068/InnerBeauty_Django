@@ -1,0 +1,1 @@
+web: gunicorn inner_beauty_django.wsgi --log-file=-
