@@ -9,7 +9,7 @@ class Category(models.Model):
     slug = models.SlugField()
 
     class Meta:
-        ordering = ('name',)
+        ordering = ('name',)  # adding comma so that it's iterable for the backend
     
     def __str__(self):
         return self.name

@@ -8,9 +8,11 @@ from rest_framework.decorators import api_view
 from .models import Product, Category
 from .serializers import ProductSerializer, CategorySerializer
 
-class LatestProductsList(APIView):
+import random
+
+class RandomProductsList(APIView):
     def get(self, request, format=None):
-        products = Product.objects.all()[0:4]
+        products = random.sample(list(Product.objects.all()), 10)  # Get the data
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
 
