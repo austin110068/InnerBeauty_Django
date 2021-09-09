@@ -62,7 +62,7 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
-    "https://inner-beauty.herokuapp.com/"
+    "https://inner-beauty.herokuapp.com"
 ]
 
 MIDDLEWARE = [
