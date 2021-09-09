@@ -12,29 +12,33 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Initialise environ
+env = environ.Env()
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['inner-beauty.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['inner-beauty-api.herokuapp.com', '127.0.0.1']
 
 # Stripe
-STRIPE_SECRET_KEY = os.environ["STRIPE_SECRET_KEY"]
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
 
 # Twilio
-TWILIO_ACCOUNT_SID = os.environ["TWILIO_ACCOUNT_SID"]
-TWILIO_AUTH_TOKEN = os.environ["TWILIO_AUTH_TOKEN"]
-TWILIO_NUMBER = os.environ["TWILIO_NUMBER"]
+TWILIO_ACCOUNT_SID = env('TWILIO_ACCOUNT_SID')
+TWILIO_AUTH_TOKEN = env('TWILIO_AUTH_TOKEN')
+TWILIO_NUMBER = env('TWILIO_NUMBER')
 
 # Application definition
 

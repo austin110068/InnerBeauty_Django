@@ -86,7 +86,6 @@ venv/
 ENV/ 
 env.bak/ 
 venv.bak/ 
-InnerBeauty.env
 
 # mkdocs documentation 
 /site 
