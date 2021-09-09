@@ -10,6 +10,7 @@ dj-database-url==0.5.0
 Django==3.2.5
 django-cors-headers==3.7.0
 django-environ==0.6.0
+django-heroku==0.0.0
 django-rest-framework==0.1.0
 django-templated-mail==1.1.1
 djangorestframework==3.12.4
