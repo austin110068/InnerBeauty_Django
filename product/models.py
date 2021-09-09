@@ -5,10 +5,10 @@ from django.core.files import File
 from django.db import models
 
 # Development mode
-base_url = 'http://127.0.0.1:8000'
+# base_url = 'http://127.0.0.1:8000'
 
 # Production mode
-# base_url = 'https://inner-beauty-api.herokuapp.com'
+base_url = 'https://inner-beauty-api.herokuapp.com'
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
