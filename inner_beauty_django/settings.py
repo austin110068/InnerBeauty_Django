@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-emqqo+g*)$7exvc)hmmuik08dn00#e9xqf&@p@tj1u9z!a&tte'
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -29,12 +29,12 @@ DEBUG = False
 ALLOWED_HOSTS = ['inner-beauty.herokuapp.com', '127.0.0.1']
 
 # Stripe
-STRIPE_SECRET_KEY = os.environ["STRIPE_SECRET_KEY"];
+STRIPE_SECRET_KEY = os.environ["STRIPE_SECRET_KEY"]
 
 # Twilio
-TWILIO_ACCOUNT_SID = os.environ["TWILIO_ACCOUNT_SID"];
-TWILIO_AUTH_TOKEN = os.environ["TWILIO_AUTH_TOKEN"];
-TWILIO_NUMBER = os.environ["TWILIO_NUMBER"];
+TWILIO_ACCOUNT_SID = os.environ["TWILIO_ACCOUNT_SID"]
+TWILIO_AUTH_TOKEN = os.environ["TWILIO_AUTH_TOKEN"]
+TWILIO_NUMBER = os.environ["TWILIO_NUMBER"]
 
 # Application definition
 
@@ -58,13 +58,13 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
-    "https://inner-beauty.herokuapp.com/"
+    # "https://inner-beauty.herokuapp.com/"
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
 
-    'whitenoise.middleware.WhiteNoiseMiddleware'
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
@@ -143,7 +143,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_ROOT = BASE_DIR / 'staticfiles/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
