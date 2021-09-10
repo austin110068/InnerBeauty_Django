@@ -28,7 +28,7 @@ environ.Env.read_env()
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['inner-beauty-api.herokuapp.com', 'inner-beauty.herokuapp.com', '127.0.0.1']
 
@@ -103,16 +103,25 @@ WSGI_APPLICATION = 'inner_beauty_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# Development
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd763jq5iurepfh',
-        'HOST': 'ec2-52-45-238-24.compute-1.amazonaws.com',
-        'PORT': 5432,
-        'USER': 'eraisonwvmymgz',
-        'PASSWORD': '7f9c7cb82545a1f2248fbf2b122c5edd65e96ab7508b0faf1bda743a88708b7e'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Production
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env('DATABASE_NAME'),
+#         'HOST': env('DATABASE_HOST'),
+#         'PORT': env('DATABASE_PORT'),
+#         'USER': env('DATABASE_USER'),
+#         'PASSWORD': env('DATABASE_PASSWORD')
+#     }
+# }
 
 
 # Password validation
