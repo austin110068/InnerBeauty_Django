@@ -105,14 +105,14 @@ WSGI_APPLICATION = 'inner_beauty_django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd763jq5iurepfh',
+        'HOST': 'ec2-52-45-238-24.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'eraisonwvmymgz',
+        'PASSWORD': '7f9c7cb82545a1f2248fbf2b122c5edd65e96ab7508b0faf1bda743a88708b7e'
     }
 }
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
-
 
 
 # Password validation
@@ -151,20 +151,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'static'),
 )
-
-STATIC_ROOT = os.path.join(BASE_DIR, "live-static", "static-root")
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_URL = "/media/"
 
-# MEDIA_ROOT = BASE_DIR / 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "live-static", "media-root")
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
